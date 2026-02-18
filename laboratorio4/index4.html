@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+       <meta charset="UTF-8">
+       <title>Laboratorio 4 Ana Sofía Moreno</title> 
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" type= "text/css" href="lab4style.css"/>
+       </head>
+    <body>
+        <header class="titulo">Laboratorio 4: Ana Sofía Moreno</header>
+        <nav>
+            <ul>
+                <li><a href="#DatosContacto" class="menuItem">Datos y Contacto</a></li>
+                <li><a href="https://github.com/AnaSofiaMorenoA01707156/-ConstruccionSoftwareYTomaDeDecisiones.git" target="_blank" class="menuItem">Repositorio GitHub</a></li>
+                <li><a href="#EditorHTML" class="menuItem">Editor HTML utilizado</a></li>
+            </ul>
+            <ul>
+                <li><a href="#Preguntas1" class="menuItem">Preguntas Lab 1</a></li>
+                <li><a href="#Preguntas2" class="menuItem">Preguntas Lab 3</a></li>
+                <li><a href="#Preguntas3" class="menuItem">Preguntas Lab 4</a></li>
+                <li><a href="#ProblemasLab4" class="menuItem">Problemas Lab 4</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h2 id="DatosContacto" class="subtitulo">Datos e Información de Contacto</h2>
+            <table>
+                <tr>
+                    <td class="texto">Nombre:</td>
+                    <td class="texto">Ana Sofía Moreno</td>
+                </tr>
+                <tr>
+                    <td class="texto">Matrícula:</td>
+                    <td class="texto">A01707156</td>
+                </tr>
+                <tr>
+                    <td class="texto">Correo institucional:</td>
+                    <td class="texto">A01707156@tec.mx</td>
+                </tr>
+                <tr>
+                    <td class="texto">Correo personal:</td>
+                    <td class="texto">mhanasofi@gmail.com</td>
+                </tr>
+            </table>
+            <p class="marcado">Sobre mí...</p>
+            <p class="texto">Tengo 20 años, nací en Querétaro y siempre he vivido aquí. De hecho estuve en prepaTec de este campus. <br>Me gusta mucho la música, viajar, salir con amigos o con familia, ir al cine y estar con mis mascotas. Tengo una hermana menor de 18 años con la que soy muy cercana.</p>
+        </section>
+        <hr>
+        <section>
+            <h2 id="Preguntas1" class="subtitulo">Preguntas del Laboratorio 1</h2>
+            <p class="marcado">1. ¿Cuál es la diferencia entre Internet y la World Wide Web?</p>
+            <p class="texto">La World Wide Web es todo el complejo de información digital que se puede encontrar en sitios interconectados por una red que cuenta con protocolos, convenciones y software. Cualquiera la puede explorar o añadirle elementos. Este complejo o red funciona o corre precisamente a través del internet, pues este no es más que el medio de comunicación entre 2 o más dispositivos para transferir información.</p>
+            <p class="marcado">2. ¿Cuáles son las partes de un URL?</p>
+            <p class="texto">Una URL o "Uniform Resource Locator" es una forma de establecer la dirección web de un recurso. Está compuesta por el protocolo que usa (ej: http), el dominio (el nombre para identificar la(s) direcciones IP donde se encuentra el recurso), el "path" o ruta (la dirección del recurso DENTRO del servidor) y los parámetros (datos adicionales para identificar o filtrar el recurso).</p>
+            <p class="marcado">3. ¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</p>
+            <p class="texto">-GET sirve para solicitar datos de un recurso de la web.<br> -HEAD funciona como GET, pero solo devuelve el encabezado (no el cuerpo o los datos del contenido), por lo que normalmente se usa para verificar que existe un recurso. <br>-POST sirve para mandar los datos a un servidor para crear un recurso.<br> -PUT sirve para actualizar o editar un recurso. <br> -PATCH sirve para aplicar modificaciones PARCIALES a un recurso.<br> -DELETE sirve para eliminar un recurso.</p>
+            <p class="marcado">4. ¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</p>
+            <p class="texto">Se debe de usar el método POST, ya que se están enviando los datos de un recurso al servidor del sitio.</p>
+            <p class="marcado">5. ¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</p>
+            <p class="texto">Se utiliza el método GET, ya que a través de la URL se solicita al servidor los datos de la página que es desplegada por el navegador web.</p>
+            <p class="marcado">6. Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</p>
+            <p class="texto">No, de acuerdo con los códigos de estatus de HTTP, el código de respuesta 200 implica que la solicitud que se le hizo al servidor se ejecutó o se cumplió con éxito y no hubo ningún error.</p>
+            <p class="marcado">7. ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</p>
+            <p class="texto">Considerando que el error suele ser causado por una solicitud errónea debido a errores en rutas, dominios, parámetros, etc., normalmente el error está en la solicitud del usuario para acceder al sitio (y no del desarrollador), por lo que no es responsabilidad del desarrollador corregirlo. Sin embargo, si el error llegara a venir de una solicitud del desarrollador, sí sería su responsabilidad corregirlo.</p>
+            <p class="marcado">8. ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</p>
+            <p class="texto">Normalmente sí, asumiendo que el desarrollador es responsable o puede modificar el código del servidor, porque ese tipo de errores vienen del servidor y de aquello que debería ser ofrecido al usuario (o desplegado en la web) por un desarrollador.</p>
+            <p class="marcado">9. ¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</p>
+            <p class="texto">Significa que el atributo ya no se usa actualmente o ya no entra en los estándares actuales de la web y de sus protocolos. En la versión más actual de HTML (HTML5), están desaprobados elementos (usados en HTML4) que han sido mejorados o reemplazados por nuevos, como "name" (ahora se usa id),"rev" (ahora se usa rel), "usemap" (ahora se usa img), o atributos que ya no son necesarios como "version" o "target". </p>
+            <p class="marcado">10. ¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</p>
+            <p class="texto">HTML5 está adaptado a las tecnologías y protocolos o estándares actuales, siendo las diferencias principales con HTML4 la incorporación de APIs, la posibilidad de incluir videos y audios que se resproduzcan, las etiquetas semánticas de estructura moderna y mejores gráficos y herramientas de almacenamiento y soporte.</p>
+            <p class="marcado">11. ¿Qué componentes de estructura y estilo tiene una tabla?</p>
+            <p class="texto">Una tabla en HTML5 se crea a partir de una etiqueta de "table", siendo este el componente principal que envuelve al contenido de la tabla. Sus componentes internos se pueden usar de formas o estructuras distintas, pero normalmente se usa la etiqueta "tr" para definir una fila dentro de la tabla, y dentro de esa etiqueta se puede usar la etiqueta "td" para definir los datos de una celda en esa fila (cada td en una siguiente columna). Además, se pueden añadir celdas de encabezado con "th", las cuales tienen un estilo centrado y en negritas.</p>
+            <p class="marcado">12. ¿Cuáles son los principales controles de una forma HTML5?</p>
+            <p class="texto">Los principales controles incluyen "label" para leyendas, "input" para diferentes tipos de input (texto, archivos, input de sliders o pickers, etc.), "button" para botones, "select" para una lista de opciones, "output" para el resultado de un cálculo u operación, "fieldset" para unir o contener varios controles, entre otros.</p>
+            <p class="marcado">13. ¿Qué tanto soporte HTML5 tiene el navegador que utilizas?</p>
+            <p class="texto">De acuerdo a  http://html5test.com/, el navegador de Google Chrome tiene un puntaje de 526 de 555 en cuanto a soporte de HTML5.</p>
+            <p class="marcado">14. ¿Cuál es el ciclo de vida de los sistemas de información?</p>
+            <p class="texto">El ciclo de vida de los sistemas de información va desde que el sistema es creado hasta que es eliminado, teniendo etapas como: 1. Adquisición o concepción, 2. Instalación o despliegue, 3. Funcionamiento y Mantenimiento, 4. Actualización o Cambio y 5. Eliminación o retirada, donde no todas las fases son completadas o se ejecutan de forma continua e irregular.</p>
+            <p class="marcado">15. ¿Cuál es el ciclo de desarrollo de sistemas de información?</p>
+            <p class="texto">El ciclo de desarrollo de sistemas de información se refiere específicamente al proceso para crear y desarrollar los sistemas, el cual es un proceso complejo. Se considera que sus fases son: 1.Análisis de requisitos y Planificación, 2.Diseño, 3.Desarrollo, 4.Pruebas, 5.Despliegue/Implementación y 6.Mantenimiento. </p>
+            <p class="marcado">Referencias</p>
+            <p class="texto">Copes, F. (2019). The HTML Handbook – Learn HTML for Beginners. FreeCodeCamp.org. https://www.freecodecamp.org/news/the-html-handbook/‌<br>GeeksforGeeks. (2021,). What are the HTML tags that deprecated in HTML5? GeeksforGeeks. https://www.geeksforgeeks.org/html/what-are-the-html-tags-that-deprecated-in-html5/ <br> Microsoft. (2026). Ciclo de vida de desarrollo de software | Microsoft Power Automate. Microsoft.com. https://www.microsoft.com/es-es/power-platform/topics/phases-of-the-software-development-lifecycle#:~:text=Ventajas%20del%20ciclo%20de%20vida,principio%20del%20proceso%20de%20desarrollo. <br> Nice, B. (2017). Beginner’s HTML Cheat Sheet. Medium; Level Up! https://medium.com/level-up-web/beginners-html-cheat-sheet-f9b1e3ce88a6‌<br> ‌W3C. About The World Wide Web. (2026). W3.org. https://www.w3.org/WWW/ <br> HTML5 Differences from HTML4. (2026). W3.org. https://www.w3.org/TR/html5-diff/‌</p>
+        </section>
+        <hr>
+        <section>
+            <h2 id="Preguntas2" class="subtitulo">Preguntas del Laboratorio 3</h2>
+            <p class="marcado">1. Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS?</p>
+            <p class="texto">Usar el keyword de !important, sobreescribiendo cualquier diseño previo del elemento en el que se usa, puede hacer que futuros cambios de diseño se vuelvan más complejos o confusos, y la única forma de sobreescribirlos para dar otro estilo es usando otro !important. Debido a la poca flexibilidad al usarla, es una herramienta muy drástica. Personalmente, yo no recomendaría su uso a menos que en algún contexto ya no quiera que el estilo de un elemento pueda cambiarse, o que ya no haya otra forma de sobreescribir el estilo del elemento.</p>
+            <p class="marcado">2. Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?</p>
+            <p class="texto">Porque establecer una imagen de fondo puede llegar a volverse complejo en términos de asegurar que las dimensiones y la resolución de la imagen sean las correctas para el fondo de la página (que la imagen no se redimensione y pierda calidad, o se repita para cubrir todo el fondo), y en términos de la legibilidad del texto que quedará sobre la imagen (que los colores de la imagen de fondo permitan una fácil lectura del texto que irá por encima).</p>
+            <p class="marcado">3. Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt?</p>
+            <p class="texto">Debido a que es una medida relativa (indica un porcentaje de tamaño para un elemento con respecto al contenedor o un tamaño default), recomendaría el uso de porcentaje (%) para la creación de sitios web que necesitan ser flexibles, adaptativos o escalables (por ejemplo para mostrarse en pantallas de diferentes tamaños). Si de momento no se necesita priorizar la flexibilidad o adaptabilidad, puede ser bueno usar px, porque los pixeles son una medida muy universal que puede ayudar a mantener consistencia en la apariencia del sitio web en diferentes pantallas, además de ser mejor para establecer los tamaños de letra o márgenes. En general no se recomienda el uso de pt para sitios web, porque su propósito suele ser para la impresión de diseños y no su interpretación en dispositivos.</p>
+            <p class="marcado">4. ¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</p>
+            <p class="texto">Porque al eliminar espacios en blanco, comentarios, indentado, etc., reduce el tamaño del archivo, lo cual permite un menor tiempo de carga del mismo y de la página o el sitio, mejorando su rendimiento.</p>
+            <p class="marcado">Referencias</p>
+            <p class="texto">W3C. (2025). CSS: em, px, pt, cm, in…. W3.org. https://www.w3.org/Style/Examples/007/units.en.html</p>
+        </section>
+        <hr>
+        <section>
+            <div id="problemasJS">
+                <h2 id="ProblemasLab4" class="subtitulo">Problemas del Laboratorio 4</h2>
+                <script src="scriptJavaLab4.js"></script>
+                <p class="marcado"><br>Descripción de problema 6 (problema a elegir): </p>
+                <p class="texto">Se necesita simular y calcular el saldo de una cuenta bancaria de ahorro con interés mensual. Se debe de poder establecer el saldo inicial, el monto de interés mensual y los meses transcurridos para así poder calcular el saldo en la cuenta.</p>
+                <p id="problema6" class="link">Haz click aquí para ejecutar el problema 6. (Se mostrará el resultado abajo).</p>
+                <div id="sol6"></div>
+                
+            </div>
+            <div id="preguntasJS">
+                <h2 id="Preguntas3" class="subtitulo"><br>Preguntas del Laboratorio 4</h2>
+                <p class="marcado">1. ¿Qué diferencias y semejanzas hay entre Java y JavaScript?</p>
+                <p class="texto">A pesar del nombre, Java y JavaScript son lenguajes de programación independientes y no están relacionados, pues tienen objetivos y características diferentes. Algunas de las principales son:<br>- Java sirve para POO usada en back-end y aplicaciones, mientras que JavaScript se usa para generar scripts dinámicos basados en prototipos, usados en el front-end y back-end de sitios web.<br>- JavaScript no funciona de forma independiente, normalmente sirve como herramienta para generar elementos e interacción de páginas web, vinculándose a documentos HTML. Java sí se puede usar de forma independiente para crear aplicaciones.<br>- Las aplicaciones de Java se pueden ejecutar directamente y el código necesita compilarse, pero los códigos dinámicos de JavaScript se interpretan y ejecutan en un explorador web.<br>- Java es un lenguaje estático (y compilado), pero JavaScript es un lenuaje dinámico (e interpretado).</p>
+                <p class="marcado">2. ¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</p>
+                <p class="texto">El objeto Date en JS sirve para crear objetos de tiempo, que pueden contener fecha (día, mes, año), hora estática (horas, minutos, segundos) y/ o huso horario, usualmente del momento de su creación. Algunos de sus métodos incluyen: <br>- new Date() para crear un objeto Date nuevo. <br>- Muchos getters distintos como getFullYear() (regresa el año del objeto).<br>- setters como setMonth() (establece/cambia el mes del objeto).<br>- now(): regresa los milisegundos en tiempo POSIX/Unix (desde 1 de enero de 1970, 12 a.m.)<br>- parse(): para parsear una fecha string y regresar los milisegundos en tiempo Unix.</p>
+                <p class="marcado">3. ¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</p>
+                <p class="texto">Algunos métodos de los arreglos en JS son:<br>- .length: regresa el tamaño del arreglo.<br>- métodos para eliminar y añadir los elementos del arreglo (pop, push, shift (eliminar 1ero), splice (añadir en posiciones específicas))<br>- join(): une todos los elementos del arreglo en un string con separadores especificados<br>- concat(): crea un nuevo arreglo a partir de la concatenación de varios arreglos.<br>- slice(): quita una parte especificada del arreglo y lo convierte en un nuevo arreglo.<br>-toSpliced(): crea un nuevo arreglo de un pedazo especificado de un arreglo original, pero sin modificar ese original (eliminar la parte).</p>
+                <p class="marcado">4. ¿Cómo se declara una variable con alcance local dentro de una función?</p>
+                <p class="texto">Dentro de una función o ámbito, si se usa "let" como type antes de la variable, esta es declarada como variable con alcance local (dentro de esa función o ámbito).</p>
+                <p class="marcado">5. ¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</p>
+                <p class="texto">Utilizar variables globales dentro de una función puede generar complicaciones dentro del código, genera mayor riesgo de sobreescribir la variable, hace más difícil el encapsulamiento y división modular del código, lo cual dificulta el rastreo de errores, reduce escalabilidad y seguridad y aumenta el gasto de memoria.</p>
+                <p class="marcado">Referencias</p>
+                <p class="texto">Java. (2025). Diferencias entre JavaScript y Java. Java.com. https://www.java.com/es/download/help/java_javascript.html<br>W3Schools. (2026). JavaScript Arrays. W3schools.com. https://www.w3schools.com/js/js_date_reference.asp<br>W3Schools. (2026). JavaScript Dates. W3schools.com. https://www.w3schools.com/js/js_date_reference.asp</p>
+            </div>
+        </section>
+        <hr>
+        <footer>
+            <h2 id="EditorHTML" class="subtitulo">Editor HTML utilizado</h2>
+            <p class="texto">Para la creación de este documento html utilicé el editor Visual Studio Code.</p>
+            <p class="texto">Enlace al sitio del editor:</p>
+            <a href="https://code.visualstudio.com/" target="_blank" class="link">https://code.visualstudio.com/</a>
+        </footer>
+    </body>
+</html>
