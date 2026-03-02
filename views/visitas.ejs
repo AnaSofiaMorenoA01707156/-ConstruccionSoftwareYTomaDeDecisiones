@@ -1,0 +1,15 @@
+<%- include('includes/header') %>
+    <section>
+        <hr>
+        <h3>Visitantes del sitio (y su color favorito):</h3>
+        <% for (let visita of visitantes) { %>
+            <br>
+            <%= visita.nombre %> , <%= visita.color %>
+        <% } %>
+        <br><br>
+        <a href="/laboratorios">
+            <button>Regresar</button>
+        </a>
+        <hr>
+    </section>
+<%- include('includes/footer') %>

@@ -1,0 +1,24 @@
+<%- include('includes/header') %>
+        <section>
+            <hr>
+            <h2>Registro de visita</h2>
+            <h3>Gracias por visitar el sitio! Escribe aquí tu nombre y color favorito para registrar tu visita.</h3>
+            <form action="/forms/registro" method="POST">
+                <div>
+                    <label for="nombre">Nombre:<br></label>
+                    <input type="text" name="nombre"/>
+                </div>
+                <div>
+                    <label for="color">Color favorito:<br></label>
+                    <input type="text" name="color"/>
+                </div>
+                <div>
+                    <input type="submit" value="Registrar"/>
+                </div>
+            </form><br>
+            <a href="/home">
+            <button>Regresar a Home</button>
+            </a><br>
+            <hr>
+        </section>
+<%- include('includes/footer') %>
