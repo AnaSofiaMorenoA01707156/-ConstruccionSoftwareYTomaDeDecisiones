@@ -1,0 +1,27 @@
+{
+  "name": "construccionsoftwareytomadedecisiones",
+  "version": "1.0.0",
+  "description": "Introducción a npm",
+  "homepage": "https://github.com/AnaSofiaMorenoA01707156/-ConstruccionSoftwareYTomaDeDecisiones#readme",
+  "bugs": {
+    "url": "https://github.com/AnaSofiaMorenoA01707156/-ConstruccionSoftwareYTomaDeDecisiones/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnaSofiaMorenoA01707156/-ConstruccionSoftwareYTomaDeDecisiones.git"
+  },
+  "license": "MIT",
+  "author": "Ana Sofía Moreno",
+  "type": "commonjs",
+  "main": "npmIntro.js",
+  "scripts": {
+    "start": "node --watch npmIntro.js",
+    "chocolate": "echo \"chocolate\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1"
+  }
+}
