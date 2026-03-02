@@ -1,10 +1,10 @@
 <%- include('includes/header') %>
     <section>
         <hr>
-        <h3>Visitantes del sitio (y su color favorito):</h3>
+        <h3 class="subtitulo">Visitantes del sitio (y su color favorito):</h3>
         <% for (let visita of visitantes) { %>
             <br>
-            <%= visita.nombre %> , <%= visita.color %>
+            <%= visita.nombre %>, <%= visita.color %>
         <% } %>
         <br><br>
         <a href="/laboratorios">
