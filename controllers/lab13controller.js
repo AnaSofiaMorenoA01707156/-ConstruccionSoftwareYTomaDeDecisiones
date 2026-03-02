@@ -1,5 +1,4 @@
-const visitantes= [{nombre: "Ana Sofía", color: "morado"}];
-
+const Visitante = require('../models/visitantes.model');
 const path = require('path');
 
 exports.get_lab3 = (request, response, next) => {
@@ -18,6 +17,10 @@ exports.get_lab12 = (request, response, next) => {
     response.render('lab12');
 };
 
+exports.get_lab13 = (request, response, next) => {
+    response.render('lab13');
+};
+
 exports.get_labs = (request, response, next) => {
     response.render('laboratorios');
 };
@@ -27,10 +30,11 @@ exports.get_registro = (request, response, next) => {
 };
 
 exports.post_registro = (request, response, next) => {
-    visitantes.push(request.body);
+    const visitante = new Visitante(request.body.nombre, request.body.color); //instancia de la clase
+    visitante.save();
     response.redirect('/forms/visitas');
 };
 
 exports.get_visitas = (request, response, next) => {
-    response.render('visitas', {visitantes: visitantes}); 
+    response.render('visitas', {visitantes: Visitante.fetchAll()}); //hace referencia a la clase directamente
 };
