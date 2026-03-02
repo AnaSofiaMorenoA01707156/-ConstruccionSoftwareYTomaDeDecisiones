@@ -19,6 +19,7 @@
     "chocolate": "echo \"chocolate\"",
     "lab11": "node --watch laboratorio11/lab11script.js",
     "lab12": "node --watch laboratorio12/lab12script.js",
+    "lab13": "node --watch laboratorio13/lab13script.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
