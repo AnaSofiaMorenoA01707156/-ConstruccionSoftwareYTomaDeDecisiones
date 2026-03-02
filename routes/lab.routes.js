@@ -1,19 +1,29 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = router;
-
 const header= `
 <!DOCTYPE html>
 <html lang="es">
     <head>
        <meta charset="UTF-8">
-       <title>Laboratorio 6 Ana Sofía Moreno</title> 
+       <title>Laboratorios Ana Sofía Moreno</title> 
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <link rel="stylesheet" type= "text/css"/>
     </head>
     <body>
-        <h1 class="titulo">Laboratorio 11: Ana Sofía Moreno</h1>
+        <h1 class="titulo">Laboratorios: Ana Sofía Moreno</h1>
+        <nav>
+            <ul>
+                <li><a href="https://github.com/AnaSofiaMorenoA01707156/-ConstruccionSoftwareYTomaDeDecisiones.git" target="_blank" class="menuItem">Repositorio GitHub</a></li>
+                <li><a href="/laboratorios/lab3" class="menuItem">Preguntas Lab 3</a></li>
+                <li><a href="/laboratorios/lab6" class="menuItem">Preguntas Lab 6</a></li>
+                <li><a href="/laboratorios/lab11" class="menuItem">Preguntas Lab 11</a></li>
+            </ul>
+        </nav><br>
+        <a href="/home">
+            <button>Regresar a Home</button>
+        </a>
+        <br>
         <section>
             <hr>
             <h2 id="DatosContacto" class="subtitulo">Datos e Información de Contacto</h2>
@@ -40,21 +50,8 @@ const header= `
             <hr>
         </section>`;
 
-const navBar=`
-        <nav>
-            <ul>
-                <li><a href="/personal" class="menuItem">Datos y Contacto</a></li>
-                <li><a href="https://github.com/AnaSofiaMorenoA01707156/-ConstruccionSoftwareYTomaDeDecisiones.git" target="_blank" class="menuItem">Repositorio GitHub</a></li>
-                <li><a href="/lab3" class="menuItem">Preguntas Lab 3</a></li>
-                <li><a href="/lab6" class="menuItem">Preguntas Lab 6</a></li>
-                <li><a href="/lab11" class="menuItem">Preguntas Lab 11</a></li>
-            </ul>
-        </nav>
-        <br><br><br>`;
-
 const footer=`
         <footer>
-            <br><br><br>
             <h2 id="EditorHTML" class="subtitulo">Editor HTML utilizado</h2>
             <p class="texto">Para la creación de este documento html utilicé el editor Visual Studio Code.</p>
             <p class="texto">Enlace al sitio del editor:</p>
@@ -101,41 +98,26 @@ const laboratorio11=`
             <hr>
             <h2 id="Pregunta11" class="subtitulo">Pregunta del Laboratorio 11</h2>
             <p class="marcado">1. Describe el archivo package.json.</p>
-            <p class="texto">i.</p>
-            <hr>
-        </section>`;
-
-const forma=`
-        <section>
-            <hr>
-            <h2>Registro de visita</h2>
-            <h3>Gracias por visitar el sitio! Escribe aquí tu nombre y color favorito para registrar tu visita.</h3>
-            <form action="/registro" method="POST">
-                <div>
-                    <label for="nombre">Nombre:<br></label>
-                    <input type="text" name="nombre"/>
-                </div>
-                <div>
-                    <label for="color">Color favorito:<br></label>
-                    <input type="text" name="color"/>
-                </div>
-                <div>
-                    <input type="submit" value="Registrar"/>
-                </div>
-            </form>
+            <p class="texto">El contenido del archivo package.json sirve permite almacenar, definir y gestionar metadatos, dependencias y scripts (que puede ejecutar) de un proyecto node.</p>
             <hr>
         </section>`;
 
 const visitantes= [{nombre: "Ana Sofía", color: "morado"}];
 
 router.use('/lab3', (request, response, next) => {
-    response.send(header + navBar + laboratorio3 + footer); 
+    response.send(header + laboratorio3 + footer); 
 });
 
 router.use('/lab6', (request, response, next) => {
-    response.send(header + navBar + laboratorio6 + footer); 
+    response.send(header + laboratorio6 + footer); 
 });
 
 router.use('/lab11', (request, response, next) => {
-    response.send(header + navBar + laboratorio11 + footer); 
+    response.send(header + laboratorio11 + footer); 
 });
+
+router.use((request, response, next) => {
+    response.send(header + footer); 
+});
+
+module.exports = router;
