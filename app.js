@@ -9,17 +9,24 @@ app.use(express.static(path.join(__dirname, '.', 'public')));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+const session = require('express-session');
+app.use(session({
+    secret: 'mi string secreto que debe ser un string aleatorio muy largo, no como éste', 
+    resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
+    saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
+}));
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 
-const rutasLabs = require('./routes/labMVC.routes');
+const rutasLabs = require('./routes/labs.routes');
 app.use('/laboratorios', rutasLabs);
 
-const rutasFormas = require('./routes/formMVC.routes');
-app.use('/forms', rutasFormas);
+const rutasUsuarios = require('./routes/users.routes');
+app.use('/forms', rutasUsuarios);
 
 app.use('/home', (request, response, next) => {
-    response.render('home');
+    response.render('home', {nombre: request.session.nombre});
 });
 
 app.use((request, response, next) => {

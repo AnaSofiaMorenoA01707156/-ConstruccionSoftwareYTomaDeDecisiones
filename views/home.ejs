@@ -1,11 +1,24 @@
 <%- include('includes/header') %>
 <body>
     <h1 class="titulo">Home page</h1>
+    <h2 class="subtitulo">
+        <% if (typeof(nombre) != "undefined") { %>
+            ¡Bienvenido, <%= nombre %>!
+        <% } else { %>
+            ¡Bienvenido usuario!
+        <% } %>
+    </h2>
     <a href="/laboratorios">
         <button>Ver laboratorios</button>
     </a>
-    <a href="/forms/registro">
-        <button>Registrar mi visita</button>
-    </a>
+    <% if (typeof(nombre) != "undefined") { %>
+        <a href="/forms/cerrarSesion">
+            <button>Cerrar sesión</button>
+        </a>
+    <% } else { %>
+        <a href="/forms/registro">
+            <button>Registrarme</button>
+        </a>
+    <% } %>
 </body>
 <%- include('includes/footer') %>
