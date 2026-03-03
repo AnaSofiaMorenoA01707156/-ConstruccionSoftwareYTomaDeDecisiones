@@ -15,7 +15,7 @@
   "type": "commonjs",
   "main": "npmIntro.js",
   "scripts": {
-    "start": "node --watch npmIntro.js",
+    "start": "node --watch app.js",
     "chocolate": "echo \"chocolate\"",
     "lab11": "node --watch laboratorio11/lab11script.js",
     "lab12": "node --watch laboratorio12/lab12script.js",

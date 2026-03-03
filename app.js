@@ -1,27 +1,29 @@
-//INTRODUCCIÓN AL USO DE NODE: permite tener acceso al sistema de archivos de la computadora, y ejecutar programas como servidores web.
-//Code no es secuencial, el código se va a ejecutar de forma asíncrona: trabaja con "promesas" (no ejecuta en el momento, 
-// pero se "compromete" a ejecutarlo después). Casi todas las promesas (ejecuciones) se cumplen
-console.log("hola desde node"); //con nodejs console.log imprime en la terminal del lado del servidor
+console.log("running");
 
-const filesystem= require('fs'); //importar el sistema de archivos del sistema (tipo una API para interactuar con él)
-//filesystem.writeFileSync('hola.txt', 'Hola desde node'); //crea el archivo con el nombre (1 el.) y añade lo 2do a su contenido. 
-// "Sync" hace que la instrucción sea síncrona (para que no se ejecute hasta que se cree el archivo).
+const express = require('express');
+const app = express();
 
-const arreglo=[50, 6, 9, 10, 1, 2, 100, 12, 20, 34, 5];
-for(let item of arreglo){
-    setTimeout(() => {     //recibe dos funciones: una función y luego un valor de milisegundos (ejecuta la función después de esos milisegundos)
-        console.log(item);
-    }, item); //imprime el arreglo en orden ascendente porque se imprime conforme se cumpla el item en milisegundos
-}
+const path = require('path');
+app.use(express.static(path.join(__dirname, '.', 'public')));
 
-const http= require('http');
-const server=http.createServer((request, response) => {
-//    console.log(request);
-    console.log(request.url);
-//    console.log(response);
-    response.setHeader('Content-Type', 'text/html');
-    response.write("respuesta");
-    response.end();
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
+
+const rutasLabs = require('./routes/labMVC.routes');
+app.use('/laboratorios', rutasLabs);
+
+const rutasFormas = require('./routes/formMVC.routes');
+app.use('/forms', rutasFormas);
+
+app.use('/home', (request, response, next) => {
+    response.render('home');
 });
 
-server.listen(3000);
+app.use((request, response, next) => {
+    response.status(404).send("La página que estás buscando no existe.");
+});
+
+app.listen(3000);
