@@ -6,7 +6,7 @@ exports.get_lab3 = (request, response, next) => {
 };
 
 exports.get_lab6file = (request, response, next) => {
-    response.sendFile(path.join(__dirname, '..', 'laboratorio6', 'validacionPswds.html'));
+    response.sendFile(path.join(__dirname, '..', 'public', 'validacionPswds.html'));
 };
 
 exports.get_lab11 = (request, response, next) => {
