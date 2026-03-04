@@ -6,7 +6,7 @@ exports.get_registro = (request, response, next) => {
 exports.post_registro = (request, response, next) => {
     const visitante = new Visitante(request.body.nombre, request.body.color); //instancia de la clase
     visitante.save();
-    response.setHeader('Set-Cookie', `ultimo_registro= ${visitante.nombre}; Secure`);
+    response.setHeader('Set-Cookie', `ultimo_color=${visitante.color}; Secure`);
     request.session.nombre = request.body.nombre;
     response.redirect('/forms/visitas');
 };

@@ -3,22 +3,26 @@
             <hr>
             <h2 class="subtitulo">Registro de visita</h2>
             <h3 class="marcado">Gracias por visitar el sitio! Escribe aquí tu nombre y color favorito para registrar tu visita.</h3>
-            <form action="/forms/registro" method="POST">
-                <div>
-                    <label for="nombre">Nombre:<br></label>
-                    <input type="text" id="nombre" name="nombre" placeholder="e.g. Sancho" required/>
-                </div>
-                <div>
-                    <label for="color">Color favorito:<br></label>
-                    <input type="text" id="color" name="color" placeholder="e.g. amarillo"/>
-                </div>
-                <div>
-                    <input type="submit" value="Registrar"/>
-                </div>
-            </form><br>
-            <a href="/home">
-            <button>Regresar a Home</button>
-            </a><br>
-            <hr>
+            <div id="formContainer">
+                <form action="/forms/registro" method="POST">
+                    <div class="campo">
+                        <label for="nombre">Nombre:<br></label>
+                        <input type="text" id="nombre" name="nombre" placeholder="e.g. Sancho" required/>
+                    </div>
+                    <div class="campo">
+                        <label for="color">Color favorito:<br></label>
+                        <input type="text" id="color" name="color" placeholder="e.g. amarillo"/>
+                    </div>
+                    <div class="campoBoton">
+                        <input type="submit" value="Registrar" id="botonRegistrar"/>
+                    </div>
+                </form>
+            </div><br>
+            <div class="campoBoton">
+                <a href="/home">
+                    <button>Regresar a Home</button>
+                </a>
+            </div>
+            <br><hr>
         </section>
 <%- include('includes/footer') %>

@@ -1,4 +1,4 @@
-const visitantes= [{nombre: "Ana Sofía", color: "morado"}];
+const visitantes= [{nombre: "Ana Sofía", color: "morado"}, {nombre: "Pancho", color: "azul"}, {nombre: "Sancho", color: "amarillo"}];
 
 module.exports = class Visitante {
 

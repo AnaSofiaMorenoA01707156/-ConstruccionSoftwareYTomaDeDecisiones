@@ -1,15 +1,19 @@
 <%- include('includes/header') %>
     <section>
         <hr>
-        <h3 class="subtitulo">Visitantes del sitio (y su color favorito):</h3>
-        <% for (let visita of visitantes) { %>
-            <br>
-            <%= visita.nombre %>, <%= visita.color %>
-        <% } %>
+        <h3 class="subtitulo">Visitantes del sitio:</h3>
+        <p class="texto">
+            <% for (let visita of visitantes) { %>
+                <%= visita.nombre %>, <%= visita.color %>
+                <br><br>
+            <% } %>
+        </p>
         <br><br>
-        <a href="/laboratorios">
-            <button>Regresar</button>
-        </a>
+        <div class="campoBoton">
+            <a href="/home">
+                <button>Regresar a Home</button>
+            </a>
+        </div>
         <hr>
     </section>
 <%- include('includes/footer') %>
