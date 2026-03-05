@@ -1,4 +1,4 @@
-const visitantes= [{nombre: "Ana Sofía", color: "morado"}, {nombre: "Pancho", color: "azul"}, {nombre: "Sancho", color: "amarillo"}];
+const db = require('../util/database');
 
 module.exports = class Visitante {
 
@@ -11,12 +11,13 @@ module.exports = class Visitante {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        visitantes.push(this);
+        return db.execute('INSERT INTO visitantes(nombre, color) VALUES(?, ?)', 
+            [this.nombre, this.color]);
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
-        return visitantes;
+        return db.execute('SELECT * FROM visitas');
     }
 
 }
