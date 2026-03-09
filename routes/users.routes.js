@@ -7,6 +7,10 @@ router.get('/registro', usersController.get_registro);
 
 router.post('/registro', usersController.post_registro);
 
+router.get('/inicioSesion', usersController.get_ingreso);
+
+router.post('/inicioSesion', usersController.post_ingreso);
+
 router.get('/edicion', usersController.get_cambioColor);
 
 router.post('/edicion', usersController.post_cambioColor);

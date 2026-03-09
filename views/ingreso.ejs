@@ -1,0 +1,30 @@
+<%- include('includes/header') %>
+        <section>
+            <hr>
+            <h2 class="subtitulo">Inicio de sesión de usuarios ya registrados</h2>
+            <h3 class="marcado">Escribe aquí tu nombre y contraseña para ingresar en tu cuenta al sitio.</h3>
+            <section>
+                <div id="formContainer">
+                    <form action="/forms/inicioSesion" method="POST">
+                        <div class="campo">
+                            <label for="username">Username:<br></label>
+                            <input type="text" id="username" name="username" required/>
+                        </div>
+                        <div class="campo">
+                            <label for="password">Contraseña:<br></label>
+                            <input type="text" id="password" name="password" required/>
+                        </div>
+                        <div class="campoBoton">
+                            <input type="submit" value="Iniciar sesión" id="botonRegistrar"/>
+                        </div>
+                    </form>
+                </div><br>
+            </section>
+            <div class="campoBoton">
+                <a href="/home">
+                    <button class="boton">Regresar a Home</button>
+                </a>
+            </div>
+            <br><hr>
+        </section>
+<%- include('includes/footer') %>

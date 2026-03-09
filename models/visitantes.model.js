@@ -1,38 +1,46 @@
 const db = require('../util/database');
+const bcrypt = require('bcrypt');
 
 module.exports = class Visitante {
 
     //Constructor de la clase. Sirve para crear un nuevo objeto, 
     // y en él se definen las propiedades del modelo
-    constructor(nombre, color) {
+    constructor(username, nombre, color, password) {
+        this.username = username;
         this.nombre = nombre;
         this.color = color;
+        this.password = password;
     }
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        return db.execute('INSERT INTO visitas(nombre, color) VALUES(?, ?)', 
-            [this.nombre, this.color]);
+        return bcrypt.hash(this.password, 12).then((password_cifrado) => {
+            return db.execute('INSERT INTO visitas(username, nombre, color, password) VALUES(?,?,?,?)', 
+                [this.username, this.nombre, this.color, password_cifrado]);
+        }).catch((error) => {
+            console.log(error);
+            next(error);
+        });
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
         return db.execute('SELECT * FROM visitas');
     }
-    static fetchOne(id) {
-        return db.execute('SELECT * FROM visitas WHERE id = ?', [id]);
+    static fetchOne(username) {
+        return db.execute('SELECT * FROM visitas WHERE username = ?', [username]);
     }
-    static fetch(id) {
-        if (id) {
-            return this.fetchOne(id);
+    static fetch(username) {
+        if (username) {
+            return this.fetchOne(username);
         } else {
             return this.fetchAll();
         }
     }
 
     //Modificar o editar un valor en un registro
-    static editColor(newColor, nombre) {
-        return db.execute('UPDATE visitas SET color = ? WHERE nombre = ?',
-            [newColor, nombre]);
+    static editColor(newColor, username) {
+        return db.execute('UPDATE visitas SET color = ? WHERE username = ?',
+            [newColor, username]);
     }
 }

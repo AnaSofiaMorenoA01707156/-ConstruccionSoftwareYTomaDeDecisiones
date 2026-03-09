@@ -5,7 +5,11 @@
             <h3 class="marcado">Gracias por visitar el sitio! Escribe aquí tu nombre y color favorito para registrarte en el sitio.</h3>
             <section>
                 <div id="formContainer">
-                    <form action="/forms/registro" method="POST">
+                    <form id="forma" action="/forms/registro" method="POST">
+                        <div class="campo">
+                            <label for="username">Username:<br></label>
+                            <input type="text" id="username" name="username" required/>
+                        </div>
                         <div class="campo">
                             <label for="nombre">Nombre:<br></label>
                             <input type="text" id="nombre" name="nombre" placeholder="e.g. Sancho" required/>
@@ -14,17 +18,59 @@
                             <label for="color">Color favorito:<br></label>
                             <input type="text" id="color" name="color" placeholder="e.g. amarillo"/>
                         </div>
-                        <div class="campoBoton">
-                            <input type="submit" value="Registrar" id="botonRegistrar"/>
+                        <div id="campoP" class="campo">
+                            <label for="password">Password (contraseña):<br></label>
+                            <input type="text" id="password" name="password"/>
+                        </div>
+                        <div id="campoV" class="campo">
+                            <label for="verif">Verificar password:<br></label>
+                            <input type="text" id="verif" name="verif"/>
+                        </div>
+                        <div id="toAccept" class="campoBoton">
+                            <input type="button" id="botonReinicio" class="boton" value="Reiniciar"/>
+                            <input type="button" id="botonValidar" class="boton" value="Validar"/>
                         </div>
                     </form>
                 </div><br>
             </section>
             <div class="campoBoton">
                 <a href="/home">
-                    <button>Regresar a Home</button>
+                    <button class="boton">Regresar a Home</button>
                 </a>
             </div>
             <br><hr>
         </section>
+        <script>
+            const enviado = document.getElementById("botonValidar");
+            const forma = document.getElementById("forma");
+            const inputPswd = document.getElementById("password");
+            const inputVerif = document.getElementById("verif");
+            const reset = document.getElementById("botonReinicio");
+            const limpiar = () => {
+                document.querySelectorAll(".inputWarning").forEach(el => el.remove());
+                forma.reset();
+            }
+            const validar = () => {
+                document.querySelectorAll(".inputWarning").forEach(el => el.remove());
+                let pswd = forma["password"].value;
+                let verif = forma["verif"].value;
+                if (pswd == "") {
+                    inputPswd.insertAdjacentHTML("afterend", `<p class="inputWarning">Campo requerido.</p>`);
+                }if (verif == "") {
+                    inputVerif.insertAdjacentHTML("afterend", `<p class="inputWarning">Campo requerido.</p>`);
+                }else if (pswd != "" && verif != "")
+                    if (pswd == verif){
+                        document.getElementById('toAccept').insertAdjacentHTML("afterend",
+                        `<h2 id="aceptado" class="containerMarcado">Los campos son válidos y las contraseñas coinciden. ¿Proceder a registrar este perfil de usuario?.</h2>
+                        <div class="campoBoton">
+                            <input type="submit" value="Registrar" id="botonRegistrar"/>
+                        </div>`);
+                    }else {
+                        inputVerif.insertAdjacentHTML("afterend", `<p class="inputWarning">El password y la verificación del mismo no coinciden. <br>Intenta de nuevo.</p>`);
+                        forma.reset();
+                    }
+            }
+            enviado.onclick = validar;
+            reset.onclick = limpiar;
+        </script>
 <%- include('includes/footer') %>
