@@ -80,7 +80,7 @@ body{
     #formContainer {
         max-width: 40%;
         background-color:rgb(160, 113, 120);
-        margin: 100px;
+        margin: 60px;
         padding: 50px 100px;
         box-shadow: 2px 2px 20px rgb(90, 83, 83);
     }
@@ -139,5 +139,13 @@ body{
         font-family:Helvetica, Arial, sans-serif;
         font-size: 13px;
         padding: 4px 23px;
+    }
+    button {
+        color:rgb(160, 113, 120);
+        font-family:Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        padding: 10px 10px;
+        margin-bottom: 40px;
+        cursor: pointer;
     }
 }

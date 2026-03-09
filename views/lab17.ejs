@@ -1,0 +1,14 @@
+<%- include('includes/header') %>
+<%- include('includes/navbar') %>
+        <section>
+            <hr>
+            <h2 id="Preguntas2" class="subtitulo">Preguntas del Laboratorio 17</h2>
+            <p class="marcado">1. ¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</p>
+            <p class="texto">Al escribir el código SQL solo en el modelo, eso hace que sea más reutilizable y que pueda usarse en varios controladores o rutas y probarse más fácilmente. Además, continuando con el modelo de aruqitectura MVC, permite separar responsabilidades para no mezclar lógicas y así tener una mejor organización y un mantenimiento más fácil.</p>
+            <p class="marcado">2. ¿Qué es SQL injection y cómo se puede prevenir?</p>
+            <p class="texto">El SQL injection es una tipo de ataque a un sistema web donde el usuario atacante inserta código SQL en campos de input, provocando el acceso o manipulación de los datos de la base de datos del sistema. Para prevenirlo se deben usar consultas preparadas que separan la estructura del SQL de los datos del usuario (no usando el input del usuario directamente en la consulta SQL), por ejemplo, usando placeholders. Además de esto, se sugiere seguir validando el input del usuario.</p>
+            <p class="marcado">Referencias</p>
+            <p class="texto">Microsoft Learn. (2023). Common web application architectures - .NET. Microsoft.com. https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures?utm_source=chatgpt.com<br>W3 Schools. (2026). SQL Injection. W3schools.com. https://www.w3schools.com/sql/sql_injection.asp</p>
+            <hr>        
+        </section>
+<%- include('includes/footer') %>

@@ -3,7 +3,7 @@ const router = express.Router();
 
 const labsController = require('../controllers/labsController');
 
-router.get('/lab3', labsController.get_lab3);
+router.get('/lab17', labsController.get_lab17);
 
 router.get('/validacionLab6', labsController.get_lab6file);
 

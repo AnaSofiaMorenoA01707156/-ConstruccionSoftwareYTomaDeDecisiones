@@ -7,7 +7,13 @@ router.get('/registro', usersController.get_registro);
 
 router.post('/registro', usersController.post_registro);
 
-router.use('/visitas', usersController.get_visitas);
+router.get('/edicion', usersController.get_cambioColor);
+
+router.post('/edicion', usersController.post_cambioColor);
+
+router.get('/visitas', usersController.get_visitas);
+
+router.get('/visitas/:visitante_id', usersController.get_visitas);
 
 router.get('/cerrarSesion', usersController.get_logout);
 

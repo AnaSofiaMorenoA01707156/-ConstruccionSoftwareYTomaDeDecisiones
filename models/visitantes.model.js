@@ -11,7 +11,7 @@ module.exports = class Visitante {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        return db.execute('INSERT INTO visitantes(nombre, color) VALUES(?, ?)', 
+        return db.execute('INSERT INTO visitas(nombre, color) VALUES(?, ?)', 
             [this.nombre, this.color]);
     }
 
@@ -19,5 +19,20 @@ module.exports = class Visitante {
     static fetchAll() {
         return db.execute('SELECT * FROM visitas');
     }
+    static fetchOne(id) {
+        return db.execute('SELECT * FROM visitas WHERE id = ?', [id]);
+    }
+    static fetch(id) {
+        if (id) {
+            return this.fetchOne(id);
+        } else {
+            return this.fetchAll();
+        }
+    }
 
+    //Modificar o editar un valor en un registro
+    static editColor(newColor, nombre) {
+        return db.execute('UPDATE visitas SET color = ? WHERE nombre = ?',
+            [newColor, nombre]);
+    }
 }

@@ -1,7 +1,7 @@
 const path = require('path');
 
-exports.get_lab3 = (request, response, next) => {
-    response.render('lab3');
+exports.get_lab17 = (request, response, next) => {
+    response.render('lab17');
 };
 
 exports.get_lab6file = (request, response, next) => {

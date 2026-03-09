@@ -8,6 +8,16 @@
             ¡Bienvenido usuario!
         <% } %>
     </h2>
+    <h3 class="marcado">
+        <% if (typeof(color) != "undefined") { %>
+            En efecto, el <%= color %> es un gran color.
+        <% } else { %>
+            Aún no te has registrado, o no has registrado un color favorito.
+        <% } %>
+    </h3>
+     <hr><br>
+    <h3 class="marcado">Aplicación web de Ana Sofía Moreno A01707156, para mostrar trabajo acumulativo en laboratorios y aprendizaje de la materia Construcción de Software y Toma de Decisiones.</h3>
+    <img src="welcomeEmoji.gif" alt="Happy emoji dancing">
     <hr><br>
     <div class="campoBoton">
         <a href="/laboratorios">
@@ -16,6 +26,9 @@
         <% if (typeof(nombre) != "undefined") { %>
             <a href="/forms/cerrarSesion">
                 <button>Cerrar sesión</button>
+            </a>
+            <a href="/forms/edicion">
+                <button>Editar mi color favorito</button>
             </a>
         <% } else { %>
             <a href="/forms/registro">
