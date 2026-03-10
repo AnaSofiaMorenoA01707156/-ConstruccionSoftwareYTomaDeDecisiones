@@ -1,4 +1,5 @@
 const Visitante = require('../models/visitantes.model');
+const bcrypt = require('bcrypt');
 
 exports.get_registro = (request, response, next) => {
     response.render('registro', {
@@ -28,13 +29,48 @@ exports.get_ingreso = (request, response, next) => {
 };
 
 exports.post_ingreso = (request, response, next) => {
-    request.session.username = request.body.username;
-    //request.session.color = request.body.color;
-    visitante.save().then(() => {
-        return response.redirect('/home');
+    Visitante.fetchOne(request.body.username).then(([rows, fieldData]) => {
+        if (rows.length < 1) {
+            request.session.error = 'Usuario y/o password no coinciden';
+            return response.redirect('/forms/inicioSesion');
+        } else {
+            bcrypt.compare(request.body.password, rows[0].password).then((doMatch) => {
+                if (doMatch) {
+                    request.session.isLoggedIn = true;
+                    request.session.username = request.body.username;
+                    Visitante.fetchName(username).then(([nombres, fieldData]) => {
+                        request.session.nombre = nombres[0].nombre;
+                        /* 
+                            [
+                                { nombre: "sofi" }
+                            ]
+                        */
+                        Visitante.fetchColor(username).then(([colores, fieldData]) => {
+                            request.session.color = colores[0].color;
+                            return request.session.save((error) => {
+                                return response.redirect('/home');
+                            });
+                       }).catch((error) => {
+                            console.log(error);
+                            next(error);
+                       });
+
+                    }).catch((error) => {
+                        console.log(error);
+                        next(error);
+                    });
+                } else {
+                    request.session.error = 'Usuario y/o password no coinciden';
+                    return response.redirect('/forms/inicioSesion');
+                }
+            }).catch((error) => {
+                console.log(error);
+                throw error;
+            });
+        }
     }).catch((error) => {
         console.log(error);
-        throw error;
+        next(error);
     });
 };
 

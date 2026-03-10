@@ -3,8 +3,8 @@
             <hr>
             <h2 class="subtitulo">Registro de visita</h2>
             <h3 class="marcado">Gracias por visitar el sitio! Escribe aquí tu nombre y color favorito para registrarte en el sitio.</h3>
-            <section>
-                <div id="formContainer">
+            <section id="formSection">
+                <div id="registerContainer">
                     <form id="forma" action="/forms/registro" method="POST">
                         <div class="campo">
                             <label for="username">Username:<br></label>
@@ -61,7 +61,7 @@
                 }else if (pswd != "" && verif != "")
                     if (pswd == verif){
                         document.getElementById('toAccept').insertAdjacentHTML("afterend",
-                        `<h2 id="aceptado" class="containerMarcado">Los campos son válidos y las contraseñas coinciden. ¿Proceder a registrar este perfil de usuario?.</h2>
+                        `<h2 id="aceptado" class="marcado">Los campos son válidos y las contraseñas coinciden. ¿Proceder a registrar este perfil de usuario?</h2>
                         <div class="campoBoton">
                             <input type="submit" value="Registrar" id="botonRegistrar"/>
                         </div>`);

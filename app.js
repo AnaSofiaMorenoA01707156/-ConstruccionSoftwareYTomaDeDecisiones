@@ -26,7 +26,7 @@ const rutasUsuarios = require('./routes/users.routes');
 app.use('/forms', rutasUsuarios);
 
 app.use('/home', (request, response, next) => {
-    response.render('home', {nombre: request.session.nombre, color: request.session.color});
+    response.render('home', {username: request.session.username, nombre: request.session.nombre, color: request.session.color});
 });
 
 app.use((request, response, next) => {

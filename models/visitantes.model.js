@@ -37,7 +37,12 @@ module.exports = class Visitante {
             return this.fetchAll();
         }
     }
-
+    static fetchName(username){
+        return db.execute('SELECT nombre FROM visitas WHERE username = ?', [username]);
+    }
+    static fetchColor(username){
+        return db.execute('SELECT color FROM visitas WHERE username = ?', [username]);
+    }
     //Modificar o editar un valor en un registro
     static editColor(newColor, username) {
         return db.execute('UPDATE visitas SET color = ? WHERE username = ?',
