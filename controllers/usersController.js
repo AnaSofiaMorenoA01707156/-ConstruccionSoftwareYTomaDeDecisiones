@@ -38,14 +38,14 @@ exports.post_ingreso = (request, response, next) => {
                 if (doMatch) {
                     request.session.isLoggedIn = true;
                     request.session.username = request.body.username;
-                    Visitante.fetchName(username).then(([nombres, fieldData]) => {
+                    Visitante.fetchName(request.session.username).then(([nombres, fieldData]) => {
                         request.session.nombre = nombres[0].nombre;
                         /* 
                             [
                                 { nombre: "sofi" }
                             ]
                         */
-                        Visitante.fetchColor(username).then(([colores, fieldData]) => {
+                        Visitante.fetchColor(request.session.username).then(([colores, fieldData]) => {
                             request.session.color = colores[0].color;
                             return request.session.save((error) => {
                                 return response.redirect('/home');
