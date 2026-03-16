@@ -6,14 +6,18 @@
             <section id="formSection">
                 <div id="shortFormContainer">
                     <form action="/forms/inicioSesion" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <div class="campo">
                             <label for="username">Username:<br></label>
                             <input type="text" id="username" name="username" required/>
                         </div>
                         <div class="campo">
                             <label for="password">Contraseña:<br></label>
-                            <input type="text" id="password" name="password" required/>
+                            <input type="password" id="password" name="password" required/>
                         </div>
+                        <% if(error != '') { %>
+                            <p class="inputWarning"><%= error %></p>
+                        <% } %>
                         <div class="campoBoton">
                             <input type="submit" value="Iniciar sesión" id="botonRegistrar"/>
                         </div>

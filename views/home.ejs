@@ -21,14 +21,17 @@
     <hr><br>
     <div class="campoBoton">
         <a href="/laboratorios">
-            <button class="boton">Ver laboratorios</button>
+            <button class="boton">Preguntas de labs</button>
+        </a>
+        <a href="/forms/visitas">
+                <button class="boton">Visitantes del sitio</button>
         </a>
         <% if (typeof(username) != "undefined") { %>
+            <a href="/forms/edicion">
+                <button class="boton">Editar color favorito</button>
+            </a>
             <a href="/forms/cerrarSesion">
                 <button class="boton">Cerrar sesión</button>
-            </a>
-            <a href="/forms/edicion">
-                <button class="boton">Editar mi color favorito</button>
             </a>
         <% } else { %>
             <a href="/forms/registro">

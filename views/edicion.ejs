@@ -6,6 +6,7 @@
             <section id="formSection">
                 <div id="registerContainer">
                     <form action="/forms/edicion" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <div class="campo">
                             <label for="color">Nuevo color favorito a registrar:<br></label>
                             <input type="text" id="color2" name="color2" placeholder="e.g. amarillo"/>

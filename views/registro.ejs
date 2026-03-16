@@ -2,10 +2,11 @@
         <section>
             <hr>
             <h2 class="subtitulo">Registro de visita</h2>
-            <h3 class="marcado">Gracias por visitar el sitio! Escribe aquí tu nombre y color favorito para registrarte en el sitio.</h3>
+            <h3 class="marcado">Regístrate para poder ver los visitantes del sitio y para poder registrar o modificar tu color favorito.</h3>
             <section id="formSection">
                 <div id="registerContainer">
                     <form id="forma" action="/forms/registro" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <div class="campo">
                             <label for="username">Username:<br></label>
                             <input type="text" id="username" name="username" required/>
@@ -20,11 +21,11 @@
                         </div>
                         <div id="campoP" class="campo">
                             <label for="password">Password (contraseña):<br></label>
-                            <input type="text" id="password" name="password"/>
+                            <input type="password" id="password" name="password"/>
                         </div>
                         <div id="campoV" class="campo">
                             <label for="verif">Verificar password:<br></label>
-                            <input type="text" id="verif" name="verif"/>
+                            <input type="password" id="verif" name="verif"/>
                         </div>
                         <div id="toAccept" class="campoBoton">
                             <input type="button" id="botonReinicio" class="boton" value="Reiniciar"/>
@@ -40,11 +41,11 @@
             </div>
             <br><hr>
         </section>
-        <script>
+        <script> //Script creado para el lab6 ([Opción A], validación de passwords). Retomado para usarlo en registro de mi página.
             const enviado = document.getElementById("botonValidar");
             const forma = document.getElementById("forma");
-            const inputPswd = document.getElementById("password");
-            const inputVerif = document.getElementById("verif");
+            const inputPswd = document.getElementById("password");   const inputUser = document.getElementById("username");
+            const inputVerif = document.getElementById("verif");    const inputNombre = document.getElementById("nombre");
             const reset = document.getElementById("botonReinicio");
             const limpiar = () => {
                 document.querySelectorAll(".inputWarning").forEach(el => el.remove());
@@ -54,7 +55,13 @@
                 document.querySelectorAll(".inputWarning").forEach(el => el.remove());
                 let pswd = forma["password"].value;
                 let verif = forma["verif"].value;
-                if (pswd == "") {
+                let user = forma["username"].value;
+                let nombre = forma["nombre"].value;
+                if (user == "") {
+                    inputUser.insertAdjacentHTML("afterend", `<p class="inputWarning">Campo requerido.</p>`);
+                }if (nombre == "") {
+                    inputNombre.insertAdjacentHTML("afterend", `<p class="inputWarning">Campo requerido.</p>`);
+                }if (pswd == "") {
                     inputPswd.insertAdjacentHTML("afterend", `<p class="inputWarning">Campo requerido.</p>`);
                 }if (verif == "") {
                     inputVerif.insertAdjacentHTML("afterend", `<p class="inputWarning">Campo requerido.</p>`);
