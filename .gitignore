@@ -1,3 +1,4 @@
 #Sirve para definir cualquier arhcivo que no se quiere que Git esté rastreando:
 node_modules
 .vscode/
+uploads
