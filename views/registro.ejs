@@ -30,7 +30,11 @@
                         </div>
                         <div class="campo">
                             <label for="imagenUsuario">Imagen que te represente:</label>
+                            <div class="minitexto">SOLO archivos de imagen (png, jpg, jpeg).</div>
                             <input type="file" id="imagenUsuario" name="imagenUsuario">
+                            <% if (error) { %>
+                                <p class="inputWarning"><%= error %></p>
+                            <% } %>
                         </div>
                         <div id="toAccept" class="campoBoton">
                             <input type="button" id="botonReinicio" class="boton" value="Reiniciar"/>

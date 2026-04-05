@@ -6,11 +6,21 @@ exports.get_registro = (request, response, next) => {
         csrfToken: request.csrfToken(),
         isLoggedIn: request.session.isLoggedIn || '',
         username: request.session.username || '',
-        nombre: request.session.nombre || '',
+        nombre: request.session.nombre || '', 
+        error: null ,
     }); 
 };
 
 exports.post_registro = (request, response, next) => {
+    if (!request.file) {
+        return response.render('registro', {
+            csrfToken: request.csrfToken(),
+            isLoggedIn: request.session.isLoggedIn || '',
+            username: request.session.username || '',
+            nombre: request.session.nombre || '',
+            error: 'Solo se permiten imágenes (png, jpg, jpeg).'
+        });
+    }
     const visitante = new Visitante(request.body.username, request.body.nombre, request.body.color, request.body.password, request.file.filename); //instancia de la clase
     response.setHeader('Set-Cookie', `ultimo_color=${visitante.color}; Secure`);
     request.session.isLoggedIn = true;

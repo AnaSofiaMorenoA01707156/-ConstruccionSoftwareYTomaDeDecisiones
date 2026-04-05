@@ -35,11 +35,22 @@ const fileStorage = multer.diskStorage({
     },
 });
 
+//filtro para aceptar solo determinado tipo de archivos. (En este caso, imágenes).
+const fileFilter = (request, file, callback) => {
+    if (file.mimetype == 'image/png' || 
+        file.mimetype == 'image/jpg' ||
+        file.mimetype == 'image/jpeg' ) {
+        callback(null, true);
+    } else {
+        callback(null, false);
+    }
+}
+
 //En el registro, pasamos la constante de configuración y
 //usamos single porque es un sólo archivo el que vamos a subir, 
 //pero hay diferentes opciones si se quieren subir varios archivos. 
 //'imagenUsuario' es el nombre del input tipo file de la forma
-app.use(multer({ storage: fileStorage }).single('imagenUsuario')); 
+app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('imagenUsuario')); 
 
 const csrf = require('csurf');
 const csrfProtection = csrf();
