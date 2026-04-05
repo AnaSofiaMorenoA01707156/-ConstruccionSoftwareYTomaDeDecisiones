@@ -25,20 +25,32 @@ const multer = require('multer');
 const fileStorage = multer.diskStorage({
     destination: (request, file, callback) => {
         //'uploads': Es el directorio del servidor donde se subirán los archivos 
-        callback(null, 'public/uploads');
+        callback(null, path.join(__dirname, 'public/uploads'));
     },
     filename: (request, file, callback) => {
         //aquí configuramos el nombre que queremos que tenga el archivo en el servidor, 
         //para que no haya problema si se suben 2 archivos con el mismo nombre concatenamos el timestamp
-        callback(null, new Date().toString() + '-' + file.originalname);
+        const uniqueName = Date.now() + '-' + file.originalname; //formato adecuado para archivos windows
+        callback(null, uniqueName);
     },
 });
+
+//filtro para aceptar solo determinado tipo de archivos. (En este caso, imágenes).
+const fileFilter = (request, file, callback) => {
+    if (file.mimetype == 'image/png' || 
+        file.mimetype == 'image/jpg' ||
+        file.mimetype == 'image/jpeg' ) {
+        callback(null, true);
+    } else {
+        callback(null, false);
+    }
+}
 
 //En el registro, pasamos la constante de configuración y
 //usamos single porque es un sólo archivo el que vamos a subir, 
 //pero hay diferentes opciones si se quieren subir varios archivos. 
-//'archivo' es el nombre del input tipo file de la forma
-app.use(multer({storage: fileStorage}).single('imagen')); 
+//'imagenUsuario' es el nombre del input tipo file de la forma
+app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('imagenUsuario')); 
 
 const csrf = require('csurf');
 const csrfProtection = csrf();

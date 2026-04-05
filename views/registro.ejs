@@ -3,16 +3,17 @@
             <hr>
             <h2 class="subtitulo">Registro de visita</h2>
             <h3 class="marcado">Regístrate para poder ver los visitantes del sitio y para poder registrar o modificar tu color favorito.</h3>
+            <p class="texto">* = Campos obligatorios. El resto es información opcional para tu perfil.</p>
             <section id="formSection">
                 <div id="registerContainer">
-                    <form id="forma" action="/forms/registro" method="POST">
+                    <form id="forma" action="/forms/registro" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <div class="campo">
-                            <label for="username">Username:<br></label>
+                            <label for="username">Username:*<br></label>
                             <input type="text" id="username" name="username" required/>
                         </div>
                         <div class="campo">
-                            <label for="nombre">Nombre:<br></label>
+                            <label for="nombre">Nombre:*<br></label>
                             <input type="text" id="nombre" name="nombre" placeholder="e.g. Sancho" required/>
                         </div>
                         <div class="campo">
@@ -20,12 +21,20 @@
                             <input type="text" id="color" name="color" placeholder="e.g. amarillo"/>
                         </div>
                         <div id="campoP" class="campo">
-                            <label for="password">Password (contraseña):<br></label>
-                            <input type="password" id="password" name="password"/>
+                            <label for="password">Password (contraseña):*<br></label>
+                            <input type="password" id="password" name="password" required/>
                         </div>
                         <div id="campoV" class="campo">
-                            <label for="verif">Verificar password:<br></label>
-                            <input type="password" id="verif" name="verif"/>
+                            <label for="verif">Verificar password:*<br></label>
+                            <input type="password" id="verif" name="verif" required/>
+                        </div>
+                        <div class="campo">
+                            <label for="imagenUsuario">Imagen que te represente:</label>
+                            <div class="minitexto">SOLO archivos de imagen (png, jpg, jpeg).</div>
+                            <input type="file" id="imagenUsuario" name="imagenUsuario">
+                            <% if (error) { %>
+                                <p class="inputWarning"><%= error %></p>
+                            <% } %>
                         </div>
                         <div id="toAccept" class="campoBoton">
                             <input type="button" id="botonReinicio" class="boton" value="Reiniciar"/>
@@ -37,6 +46,9 @@
             <div class="campoBoton">
                 <a href="/home">
                     <button class="boton">Regresar a Home</button>
+                </a>
+                <a href="/forms/inicioSesion">
+                    <button class="boton">Iniciar sesión</button>
                 </a>
             </div>
             <br><hr>
