@@ -2,12 +2,17 @@
     <section>
         <hr>
         <h3 class="subtitulo">Visitantes del sitio:</h3>
-        <p class="texto">
+        <div class="columns-container">
             <% for (let visita of visitantes) { %>
-                <%= visita.nombre %>, <%= visita.color %>, <%= visita.imagen %>
-                <br><br>
+                <div class="column">
+                    <p class="texto"><%= visita.nombre %>, <%= visita.color %></p>
+                    <figure >
+                        <img src="/uploads/<%= visita.imagen %>" />
+                    </figure>
+                    <br><br>
+                </div>
             <% } %>
-        </p>
+        </div>
         <br><br>
         <div class="campoBoton">
             <a href="/home">
