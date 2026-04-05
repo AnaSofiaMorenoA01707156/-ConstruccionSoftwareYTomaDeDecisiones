@@ -5,18 +5,19 @@ module.exports = class Visitante {
 
     //Constructor de la clase. Sirve para crear un nuevo objeto, 
     // y en él se definen las propiedades del modelo
-    constructor(username, nombre, color, password) {
+    constructor(username, nombre, color, password, imagen) {
         this.username = username;
         this.nombre = nombre;
         this.color = color;
         this.password = password;
+        this.imagen = imagen;
     }
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
         return bcrypt.hash(this.password, 12).then((password_cifrado) => {
-            return db.execute('INSERT INTO visitas(username, nombre, color, password) VALUES(?,?,?,?)', 
-                [this.username, this.nombre, this.color, password_cifrado]);
+            return db.execute('INSERT INTO visitas(username, nombre, color, password, imagen) VALUES(?,?,?,?,?)', 
+                [this.username, this.nombre, this.color, password_cifrado, this.imagen]);
         }).catch((error) => {
             console.log(error);
             next(error);

@@ -11,7 +11,7 @@ exports.get_registro = (request, response, next) => {
 };
 
 exports.post_registro = (request, response, next) => {
-    const visitante = new Visitante(request.body.username, request.body.nombre, request.body.color, request.body.password); //instancia de la clase
+    const visitante = new Visitante(request.body.username, request.body.nombre, request.body.color, request.body.password, request.file.filename); //instancia de la clase
     response.setHeader('Set-Cookie', `ultimo_color=${visitante.color}; Secure`);
     request.session.isLoggedIn = true;
     request.session.username = request.body.username;
