@@ -5,11 +5,13 @@
         <div class="columns-container">
             <% for (let visita of visitantes) { %>
                 <div class="column">
-                    <p class="texto"><%= visita.nombre %>, <%= visita.color %></p>
+                    <p class="texto">
+                        <%= visita.nombre %>, <%= visita.color %>
+                    </p>
                     <p class="link" data-username="<%= visita.username %>">Ver imagen</p>
                     <br><br>
                 </div>
-            <% } %>
+                <% } %>
         </div>
         <br><br>
         <div class="campoBoton">
@@ -27,19 +29,19 @@
                 fetch(`/forms/visitas/fotoVisita/${username}`, {
                     method: 'GET',
                 })
-                .then(result => result.json())
-                .then(data => {
-                    if (data.imagen) {
-                        link.outerHTML = `<img src="${data.imagen}" alt="Imagen de visita">`;
-                    } else {
-                        link.outerHTML = `<p>${data.error || "La visita no subió ninguna imagen"}</p>`;
-                    }
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+                    .then(result => result.json())
+                    .then(data => {
+                        if (data.imagen) {
+                            link.outerHTML = `<img src="/${data.imagen}" alt="Imagen de visita">`;
+                        } else {
+                            link.outerHTML = `<p>${data.error || "La visita no subió ninguna imagen."}</p>`;
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
             };
-    });
+        });
 
     </script>
-<%- include('includes/footer') %>
+    <%- include('includes/footer') %>
