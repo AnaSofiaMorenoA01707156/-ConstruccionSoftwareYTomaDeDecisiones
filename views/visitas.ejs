@@ -29,7 +29,11 @@
                 })
                 .then(result => result.json())
                 .then(data => {
-                    console.log(data);
+                    if (data.imagen) {
+                        link.outerHTML = `<img src="${data.imagen}" alt="Imagen de visita">`;
+                    } else {
+                        link.outerHTML = `<p>${data.error || "La visita no subió ninguna imagen"}</p>`;
+                    }
                 })
                 .catch(error => {
                     console.log(error);

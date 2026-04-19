@@ -126,11 +126,16 @@ exports.get_visitas = (request, response, next) => {
 };
 
 exports.get_fotoVisita = (request, response, next) => {
-     Visitante.fetchImage(request.params.visita).then(() => {
-        return response.status(200).json({message: "Respuesta asíncrona"});
-    }).catch((error) => {
+     Visitante.fetchImage(request.params.visita).then(([rows]) => {
+        if (rows.length > 0) {
+            response.status(200).json({ imagen: rows[0].imagen });
+        } else {
+            response.status(404).json({ error: "No se encontró la imagen"});
+        }
+    })
+    .catch(error => {
         console.log(error);
-        return response.status(500).json({message: error.stack});
+        response.status(500).json({ error: error.stack });
     });
 };
 
