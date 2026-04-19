@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 
 const path = require('path');
-app.use(express.static(path.join(__dirname, 'public', 'uploads')));
+app.use(express.static(path.join(__dirname, 'public', 'uploads'))); //carpeta estática de imágenes subidas por usuarios
 app.use(express.static(path.join(__dirname, '.', 'public')));
 
 app.set('view engine', 'ejs');
@@ -19,6 +19,7 @@ app.use(session({
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json()); //middleware de JSON
 
 const multer = require('multer');
 

@@ -18,6 +18,8 @@ router.post('/edicion', isAuth, usersController.post_cambioColor);
 
 router.get('/visitas', isAuth, usersController.get_visitas);
 
+router.get('/visitas/fotoVisita', isAuth, usersController.get_fotoVisita);
+
 router.get('/visitas/:visitante_id', isAuth, usersController.get_visitas);
 
 router.get('/cerrarSesion', usersController.get_logout);

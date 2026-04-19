@@ -125,6 +125,10 @@ exports.get_visitas = (request, response, next) => {
         throw error;});
 };
 
+exports.get_fotoVisita = (request, response, next) => {
+    response.status(200).json({message: "Respuesta asíncrona"});
+};
+
 exports.get_logout = (request, response, next) => {
     request.session.destroy(() => {
         response.redirect('/home'); //Este código se ejecuta cuando la sesión se elimina.

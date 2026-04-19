@@ -6,9 +6,7 @@
             <% for (let visita of visitantes) { %>
                 <div class="column">
                     <p class="texto"><%= visita.nombre %>, <%= visita.color %></p>
-                    <figure >
-                        <img src="<%= juego.imagen %>" />
-                    </figure>
+                    <p id="linkImagen" class="link">Ver imagen</p>
                     <br><br>
                 </div>
             <% } %>
@@ -21,4 +19,18 @@
         </div>
         <hr>
     </section>
+    <script>
+        const linkImg = document.getElementById("linkImagen");
+        linkImg.onclick = () => {
+            fetch(`/forms/visitas/fotoVisita`,{
+            method: 'GET',
+            }).then((result) => {
+                return result.json(); 
+            }).then((data) => {
+             console.log(data); 
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
+    </script>
 <%- include('includes/footer') %>
