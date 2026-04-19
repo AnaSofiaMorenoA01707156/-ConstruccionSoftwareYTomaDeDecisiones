@@ -6,7 +6,7 @@
             <% for (let visita of visitantes) { %>
                 <div class="column">
                     <p class="texto"><%= visita.nombre %>, <%= visita.color %></p>
-                    <p id="linkImagen" class="link">Ver imagen</p>
+                    <p class="link" data-username="<%= visita.username %>">Ver imagen</p>
                     <br><br>
                 </div>
             <% } %>
@@ -20,17 +20,22 @@
         <hr>
     </section>
     <script>
-        const linkImg = document.getElementById("linkImagen");
-        linkImg.onclick = () => {
-            fetch(`/forms/visitas/fotoVisita`,{
-            method: 'GET',
-            }).then((result) => {
-                return result.json(); 
-            }).then((data) => {
-             console.log(data); 
-            }).catch((error) => {
-                console.log(error);
-            });
-        }
+        const linksImagenes = document.querySelectorAll(".link");
+        linksImagenes.forEach(link => {
+            link.onclick = () => {
+                const username = link.dataset.username;
+                fetch(`/forms/visitas/fotoVisita/${username}`, {
+                    method: 'GET',
+                })
+                .then(result => result.json())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+            };
+    });
+
     </script>
 <%- include('includes/footer') %>

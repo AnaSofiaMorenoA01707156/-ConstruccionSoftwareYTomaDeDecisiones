@@ -126,7 +126,12 @@ exports.get_visitas = (request, response, next) => {
 };
 
 exports.get_fotoVisita = (request, response, next) => {
-    response.status(200).json({message: "Respuesta asíncrona"});
+     Visitante.fetchImage(request.params.visita).then(() => {
+        return response.status(200).json({message: "Respuesta asíncrona"});
+    }).catch((error) => {
+        console.log(error);
+        return response.status(500).json({message: error.stack});
+    });
 };
 
 exports.get_logout = (request, response, next) => {
