@@ -6,9 +6,9 @@ exports.get_registro = (request, response, next) => {
         csrfToken: request.csrfToken(),
         isLoggedIn: request.session.isLoggedIn || '',
         username: request.session.username || '',
-        nombre: request.session.nombre || '', 
-        error: null ,
-    }); 
+        nombre: request.session.nombre || '',
+        error: null,
+    });
 };
 
 exports.post_registro = (request, response, next) => {
@@ -43,7 +43,7 @@ exports.get_ingreso = (request, response, next) => {
         isLoggedIn: request.session.isLoggedIn || '',
         error: error,
         username: request.session.username || '',
-    }); 
+    });
 };
 
 exports.post_ingreso = (request, response, next) => {
@@ -68,10 +68,10 @@ exports.post_ingreso = (request, response, next) => {
                             return request.session.save((error) => {
                                 return response.redirect('/home');
                             });
-                       }).catch((error) => {
+                        }).catch((error) => {
                             console.log(error);
                             next(error);
-                       });
+                        });
 
                     }).catch((error) => {
                         console.log(error);
@@ -97,11 +97,11 @@ exports.get_cambioColor = (request, response, next) => {
         csrfToken: request.csrfToken(),
         isLoggedIn: request.session.isLoggedIn || '',
         username: request.session.username || '',
-    }); 
+    });
 };
 
 exports.post_cambioColor = (request, response, next) => {
-    const nuevoColor = request.body.color2; 
+    const nuevoColor = request.body.color2;
     request.session.color = request.body.color2;
     const username = request.session.username;
     Visitante.editColor(nuevoColor, username).then(() => {
@@ -119,23 +119,45 @@ exports.get_visitas = (request, response, next) => {
         return response.render('visitas', {
             isLoggedIn: request.session.isLoggedIn || '',
             username: request.session.username || '',
-            visitantes: rows,});
+            visitantes: rows,
+        });
     }).catch((error) => {
         console.log(error);
-        throw error;});
+        throw error;
+    });
 };
 
 exports.get_fotoVisita = (request, response, next) => {
-     Visitante.fetchImage(request.params.visita).then(([rows]) => {
+    Visitante.fetchImage(request.params.visita).then(([rows]) => {
         if (rows.length > 0) {
             response.status(200).json({ imagen: rows[0].imagen });
         } else {
-            response.status(404).json({ error: "No se encontró la imagen"});
+            response.status(404).json({ error: "No se encontró la imagen" });
         }
     })
-    .catch(error => {
+        .catch(error => {
+            console.log(error);
+            response.status(500).json({ error: error.stack });
+        });
+};
+
+exports.get_transferirPuntos = (request, response, next) => {
+    response.render('transferirPuntos', {
+        csrfToken: request.csrfToken(),
+        isLoggedIn: request.session.isLoggedIn || '',
+        username: request.session.username || '',
+    });
+};
+
+exports.post_transferirPuntos = (request, response, next) => {
+    const usernameOrigen = request.session.username;
+    const usernameDestino = request.body.usernameDestino;
+    const puntos = request.body.puntosTransferir;
+    Visitante.transferPoints(usernameOrigen, usernameDestino, puntos).then(() => {
+        return response.redirect('/forms/visitas');
+    }).catch((error) => {
         console.log(error);
-        response.status(500).json({ error: error.stack });
+        throw error;
     });
 };
 

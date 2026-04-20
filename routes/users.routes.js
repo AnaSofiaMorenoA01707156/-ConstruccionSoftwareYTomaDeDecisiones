@@ -22,6 +22,10 @@ router.get('/visitas/fotoVisita/:visita', isAuth, usersController.get_fotoVisita
 
 router.get('/visitas/:visitante_id', isAuth, usersController.get_visitas);
 
+router.get('/transferirPuntos', isAuth, usersController.get_transferirPuntos);
+
+router.post('/transferirPuntos', isAuth, usersController.post_transferirPuntos);
+
 router.get('/cerrarSesion', usersController.get_logout);
 
 module.exports = router;

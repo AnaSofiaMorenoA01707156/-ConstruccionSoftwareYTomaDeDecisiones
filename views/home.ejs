@@ -1,47 +1,52 @@
 <%- include('includes/header') %>
-<body>
-    <h1 class="titulo">Home page</h1>
-    <h2 class="subtitulo">
-        <% if (typeof(nombre) != "undefined") { %>
-            ¡Bienvenido, <%= nombre %>!
-        <% } else { %>
-            ¡Bienvenido usuario!
-        <% } %>
-    </h2>
-    <h3 class="marcado">
-        <% if (typeof(color) != "undefined") { %>
-            En efecto, el <%= color %> es un gran color.
-        <% } else { %>
-            Aún no te has registrado, o no has registrado un color favorito.
-        <% } %>
-    </h3>
-     <hr><br>
-    <h3 class="marcado">Aplicación web de Ana Sofía Moreno A01707156, para mostrar trabajo acumulativo en laboratorios y aprendizaje de la materia Construcción de Software y Toma de Decisiones.</h3>
-    <img src="welcomeEmoji.gif" alt="Happy emoji dancing">
-    <hr><br>
-    <div class="campoBoton">
-        <a href="/laboratorios">
-            <button class="boton">Preguntas de labs</button>
-        </a>
-        <a href="/forms/visitas">
+
+    <body>
+        <h1 class="titulo">Home page</h1>
+        <h2 class="subtitulo">
+            <% if (typeof(nombre) !="undefined" ) { %>
+                ¡Bienvenido, <%= nombre %>!
+                    <% } else { %>
+                        ¡Bienvenido usuario!
+                        <% } %>
+        </h2>
+        <h3 class="marcado">
+            <% if (typeof(color) !="undefined" ) { %>
+                En efecto, el <%= color %> es un gran color.
+                    <% } else { %>
+                        Aún no te has registrado, o no has registrado un color favorito.
+                        <% } %>
+        </h3>
+        <hr><br>
+        <h3 class="marcado">Aplicación web de Ana Sofía Moreno A01707156, para mostrar trabajo acumulativo en
+            laboratorios y aprendizaje de la materia Construcción de Software y Toma de Decisiones.</h3>
+        <img src="welcomeEmoji.gif" alt="Happy emoji dancing">
+        <hr><br>
+        <div class="campoBoton">
+            <a href="/laboratorios">
+                <button class="boton">Preguntas de labs</button>
+            </a>
+            <a href="/forms/visitas">
                 <button class="boton">Visitantes del sitio</button>
-        </a>
-        <% if (typeof(username) != "undefined") { %>
-            <a href="/forms/edicion">
-                <button class="boton">Editar color favorito</button>
             </a>
-            <a href="/forms/cerrarSesion">
-                <button class="boton">Cerrar sesión</button>
-            </a>
-        <% } else { %>
-            <a href="/forms/registro">
-                <button class="boton">Registrarme</button>
-            </a>
-            <a href="/forms/inicioSesion">
-                <button class="boton">Iniciar sesión</button>
-            </a>
-        <% } %>
-    </div>
-    <hr>
-</body>
-<%- include('includes/footer') %>
+            <% if (typeof(username) !="undefined" ) { %>
+                <a href="/forms/edicion">
+                    <button class="boton">Editar color favorito</button>
+                </a>
+                <a href="/forms/transferirPuntos">
+                    <button class="boton">Transferir puntos</button>
+                </a>
+                <a href="/forms/cerrarSesion">
+                    <button class="boton">Cerrar sesión</button>
+                </a>
+                <% } else { %>
+                    <a href="/forms/registro">
+                        <button class="boton">Registrarme</button>
+                    </a>
+                    <a href="/forms/inicioSesion">
+                        <button class="boton">Iniciar sesión</button>
+                    </a>
+                    <% } %>
+        </div>
+        <hr>
+    </body>
+    <%- include('includes/footer') %>

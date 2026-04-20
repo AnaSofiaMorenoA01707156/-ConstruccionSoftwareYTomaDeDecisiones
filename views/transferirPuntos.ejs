@@ -1,0 +1,34 @@
+<%- include('includes/header') %>
+    <section>
+        <hr>
+        <h2 class="subtitulo">Transfiere puntos a otra visita del sitio</h2>
+        <h3 class="marcado">Ingresa el username de la visita a la que le quieres transferir puntos y la cantidad de
+            puntos a transferir.</h3>
+        <section id="formSection">
+            <div id="registerContainer">
+                <form action="/forms/transferirPuntos" method="POST">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <div class="campo">
+                        <label for="usernameDestino">Username de la visita a la que le quieres transferir
+                            puntos:<br></label>
+                        <input type="text" id="usernameDestino" name="usernameDestino" placeholder="e.g. pedro" />
+                    </div>
+                    <div class="campo">
+                        <label for="puntosTransferir">Cantidad de puntos a transferir:<br></label>
+                        <input type="number" id="puntosTransferir" name="puntosTransferir" placeholder="e.g. 10" />
+                    </div>
+                    <div class="campoBoton">
+                        <input type="submit" value="Transferir" id="botonRegistrar" />
+                    </div>
+                </form>
+            </div><br>
+        </section>
+        <div class="campoBoton">
+            <a href="/home">
+                <button class="boton">Regresar a Home</button>
+            </a>
+        </div>
+        <br>
+        <hr>
+    </section>
+    <%- include('includes/footer') %>

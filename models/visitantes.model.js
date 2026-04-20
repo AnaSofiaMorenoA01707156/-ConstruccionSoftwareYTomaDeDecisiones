@@ -52,4 +52,8 @@ module.exports = class Visitante {
         return db.execute('UPDATE visitas SET color = ? WHERE username = ?',
             [newColor, username]);
     }
+    //Transacción: transferir puntos a otro usuario
+    static transferPoints(usernameOrigen, usernameDestino, puntos) {
+        return db.execute('CALL transferirPuntos(?, ?, ?)',[usernameOrigen, usernameDestino, puntos]);
+    }
 }

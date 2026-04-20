@@ -6,7 +6,9 @@
             <% for (let visita of visitantes) { %>
                 <div class="column">
                     <p class="texto">
-                        <%= visita.nombre %>, <%= visita.color %>
+                        Username: <%= visita.username %> Nombre: <%= visita.nombre %><br> Color favorito: <%=
+                                    visita.color %>, Puntos:
+                                    <%= visita.puntos %>
                     </p>
                     <p class="link" data-username="<%= visita.username %>">Ver imagen</p>
                     <br><br>
